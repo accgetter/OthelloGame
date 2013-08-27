@@ -5,7 +5,7 @@ public class OthelloBoard {
     private ArrayList<ArrayList> board = new ArrayList<ArrayList>();
 
     Stone  stone = new Stone();
-    Turn  turn;
+    public Turn  turn;
 
     public OthelloBoard () {
 
@@ -99,6 +99,8 @@ public class OthelloBoard {
                         turnOneStone(tp);
                     }
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -124,6 +126,8 @@ public class OthelloBoard {
                         turnOneStone(tp);
                     }
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -143,6 +147,8 @@ public class OthelloBoard {
                     for ( Position tp : turnCellsArr ) {
                         turnOneStone(tp);
                     }
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -169,6 +175,8 @@ public class OthelloBoard {
                         turnOneStone(tp);
                     }
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -188,6 +196,8 @@ public class OthelloBoard {
                     for ( Position tp : turnCellsArr ) {
                         turnOneStone(tp);
                     }
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -214,6 +224,8 @@ public class OthelloBoard {
                         turnOneStone(tp);
                     }
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -233,6 +245,8 @@ public class OthelloBoard {
                     for ( Position tp : turnCellsArr ) {
                         turnOneStone(tp);
                     }
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -258,6 +272,8 @@ public class OthelloBoard {
                     for ( Position tp : turnCellsArr ) {
                         turnOneStone(tp);
                     }
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -282,6 +298,8 @@ public class OthelloBoard {
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -305,6 +323,8 @@ public class OthelloBoard {
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -321,6 +341,8 @@ public class OthelloBoard {
                     tmpTurnCount ++;
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -345,6 +367,8 @@ public class OthelloBoard {
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -362,6 +386,8 @@ public class OthelloBoard {
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
                     break;
+                } else if ( isEmpty(p) ) {
+                    break;
                 }
             } catch ( Exception e ) {
             }
@@ -372,9 +398,9 @@ public class OthelloBoard {
         r = position.getDispRow();
         c = position.getColumn();
 
-        for (int i = r - 1; i > 0; i--) {
-            c ++;
-            if (c > 7) {
+        for (int i = r + 1; i < 8; i++) {
+            c --;
+            if (c < 0) {
                 break;
             }
 
@@ -384,6 +410,8 @@ public class OthelloBoard {
                     tmpTurnCount ++;
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -401,6 +429,8 @@ public class OthelloBoard {
                     tmpTurnCount ++;
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {
@@ -424,6 +454,8 @@ public class OthelloBoard {
                     tmpTurnCount ++;
                 } else if ( (turn.isBlackTurn() && isBlack(p)) || (turn.isWhiteTurn() && isWhite(p)) ) {
                     turnCount += tmpTurnCount;
+                    break;
+                } else if ( isEmpty(p) ) {
                     break;
                 }
             } catch ( Exception e ) {

@@ -1,30 +1,73 @@
-// オセロボードの状態を保持、参照するクラス
+// オセロゲーム実行クラス
 import java.util.*;
 public class OthelloGame {
+
     public static void main(String args[]) {
 
-        //boolean power      = true; // true: ON 、false: OFF
         OthelloBoard board               = new OthelloBoard(); 
         OthelloBoardPrinter boardPrinter = new OthelloBoardPrinter(); 
+        Stone stone                      = new Stone();
+        BasicBrain basicBrain            = new BasicBrain();
 
         while (true) {
 
-           boardPrinter.displayOthelloBoard(board);
+            boardPrinter.displayOthelloBoard(board);
+            System.out.println("Black:" + board.countBlack() + " White:" + board.countWhite() + "\n");
 
-           Scanner scan  = new Scanner(System.in);
+            if ( board.turn.isBlackTurn() ) {
+                System.out.println("Please put black stone.");
+            }
 
-           int row       = scan.nextInt();
-           String column = scan.next();
+            Scanner scan  = new Scanner(System.in);
 
-           try {
-               Position position = new Position(row, column);
-               board.put(position);
-           } catch ( Exception e ) {
-               System.out.println(e.getMessage());
-               continue;
-           }
+            if ( board.turn.isBlackTurn() ) {
 
+                String row    = scan.next();
+
+                if ( row.equals("pass") ) {
+                    board.turn.turn();  
+                } else if ( row.equals("end") ) {
+                    break;
+                } else {
+
+                    String column = scan.next();
+
+                    try {
+                        Position position = new Position(Integer.valueOf(row), column);
+                        board.put(position);
+                    } catch ( Exception e ) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+            } else {
+                try {
+                    System.out.print("White turn thinking ");
+                    for (int s = 6; s >= 1; s--) {
+                        System.out.print(".");
+                        try{
+                            Thread.sleep(500); 
+                        }catch(InterruptedException e){}
+                    }
+                    Position position = basicBrain.getPutPosition( board );
+                    board.put(position);
+                    System.out.println("\n\nWhite turn has put.");
+                } catch ( Exception e ) {
+                    board.turn.turn();  
+                    try {
+                        Position position = basicBrain.getPutPosition( board );
+                    } catch ( Exception ex ) {
+                        System.out.println("\n\nGame Over.");
+                        if ( board.countBlack() >  board.countWhite() ) {
+                            System.out.println("Black WIN!!");
+                        } else if ( board.countBlack() <  board.countWhite() ) {
+                            System.out.println("White WIN!!");
+                        } else if ( board.countBlack() ==  board.countWhite() ) {
+                            System.out.println("DRAW...");
+                        }
+                        break;
+                    }
+                }
+            }
         }
-
     }
 }

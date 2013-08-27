@@ -4,7 +4,7 @@ public class OthelloBoardPrinter implements OthelloBoardDisplay {
     private final static String[] cell  = {"-", "●", "○"};
 
     public void displayOthelloBoard ( OthelloBoard board ) {
-        System.out.println(convertString(board.getOthelloBoardData()));
+        System.out.print(convertString(board.getOthelloBoardData()));
     }
 
     public String convertString ( ArrayList board ) {

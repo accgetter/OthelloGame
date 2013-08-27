@@ -22,7 +22,18 @@ public class Position {
         if ( (pRow > 8 || pRow < 0) || columnIndex < 0 ) {
             throw new Exception("位置の指定が不正です。もう一度石を置く位置を指定してください。");
         }
+    }
 
+    public Position ( int pRowIndex, int pColumnIndex ) throws Exception { 
+
+        rowIndex    = pRowIndex; 
+        rowDisp     = pRowIndex + 1; 
+        columnIndex = pColumnIndex;
+        columnDisp  = colMap[pColumnIndex];
+
+        if ( (pRowIndex > 7 || pRowIndex < 0) || (pColumnIndex < 0 || pColumnIndex > 7) ) {
+            throw new Exception("位置の指定が不正です。もう一度石を置く位置を指定してください。");
+        }
     }
 
     public int    getRow       () { return rowIndex; }
