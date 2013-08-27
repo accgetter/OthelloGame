@@ -16,7 +16,6 @@ public class OthelloBoardPrinterTester extends TestCase {
         OthelloBoard board = new OthelloBoard();
         String boardStr = "  A B C D E F G H\n1 - - - - - - - -\n2 - - - - - - - -\n3 - - - - - - - -\n4 - - - ○ ● - - -\n5 - - - ● ○ - - -\n6 - - - - - - - -\n7 - - - - - - - -\n8 - - - - - - - -\n";
         assertEquals ( boardStr, ec_.convertString(board.getOthelloBoardData()) );
-        ec_.displayOthelloBoard(board);
     }
 
     public void testDisplayOthelloBoard () { 
