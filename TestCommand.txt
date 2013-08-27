@@ -1,5 +1,6 @@
+javac -cp ./junit-4.10.jar *.java
 java -cp ./junit-4.10.jar:./ junit.textui.TestRunner OthelloBoardTester
 java -cp ./junit-4.10.jar:./ junit.textui.TestRunner PositionTester
 java -cp ./junit-4.10.jar:./ junit.textui.TestRunner OthelloBoardPrinterTester
-java -cp ./junit-4.10.jar:./ junit.textui.TestRunner CellTypeTester
+java -cp ./junit-4.10.jar:./ junit.textui.TestRunner StoneTester
 java -cp ./junit-4.10.jar:./ junit.textui.TestRunner TurnTester
