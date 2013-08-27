@@ -1,0 +1,64 @@
+＜コーディング規約＞
+
+・メソッドの受け側の引数の名前には,pというプレフィックスを付ける 
+
+・if文, catch文の()の前後と(の直後、)の直前にスペースを入れる 
+
+・受け側メソッドの引数の()の前後と(の直後、)の直前、,の直後にスペースを入れる ※()内がからの場合は、()ないにスペースは入れない
+
+・呼び出し側メソッドの引数の()の前と(の直後、)の直前、,の直後にスペースを入れる ※()内がからの場合は、()ないにスペースは入れない
+
+例)
+受け側
+    public Position ( String pColumn, int pRow ) { }
+呼び出し側
+    public Position ( column, row );
+
+・関数は改行で挟む
+
+・処理の固まり（ステートメント）は改行で挟む
+
+例）
+import junit.framework.*;
+
+public class BoardTester extends TestCase {
+
+    Board ec_;
+
+    public BoardTester ( String name ) { 
+        super (name);
+    }
+
+    protected void setUp () {
+        ec_ = new Board ();
+    }
+
+    public void testDefaultBoardCountBlack () { 
+        assertEquals (2, ec_.countBlack());
+    }
+
+    public void testDefaultBoardCountWhite () { 
+        assertEquals (2, ec_.countWhite());
+    }
+
+    public void testDefaultBoardPosition () { 
+
+        Position position = new Position("D",4);
+        assertEquals (false, ec_.isEmpty(position));
+        assertEquals (true, ec_.isWhite(position));
+
+        Position position = new Position("D",5);
+        assertEquals (false, ec_.isEmpty(position));
+        assertEquals (true, ec_.isBlack(position));
+
+        Position position = new Position("E",4);
+        assertEquals (false, ec_.isEmpty(position));
+        assertEquals (true, ec_.isBlack(position));
+
+        Position position = new Position("E",5);
+        assertEquals (false, ec_.isEmpty(position));
+        assertEquals (true, ec_.isWhite(position));
+
+    }
+
+}
