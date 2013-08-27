@@ -26,6 +26,11 @@ public class OthelloGame {
 
                 if ( row.equals("pass") ) {
                     board.turn.turn();  
+                } else if ( row.equals("help") ) {
+                    System.out.println("---- HELP ----");
+                    System.out.println("1. When you put stone, type row number and column key, spacing. And press the enter key.");
+                    System.out.println("2. When you can't put stone, type 'pass'. And press the enter key.");
+                    System.out.println("3. When you want to close game, type 'end'. And press the enter key.\n");
                 } else if ( row.equals("end") ) {
                     break;
                 } else {
